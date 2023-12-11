@@ -20,6 +20,22 @@ app.post('/api/auth/register', async(req, res) => {
 
 });
 
+// Authentication 
+app.post('/api/auth/login',async (req, res) => {
+    const { username, password } = req.body;
+  
+    try {
+      // 
+      const user = await User.findOne({ username, password });
+      console.log(user);
+  
+      
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
