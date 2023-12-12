@@ -15,8 +15,14 @@
 To start the application, run `npm index.js` in the terminal.
 
 
+## To test the post and get api use Postmen
+
+
+
 
 ## Buyers Apis
+
+These two api's we are not protected so you don't need to signed in to use these api's
 
 Fetch all the sellers with their name seller id http://localhost:3000/buyer/list-of-sellers.
 
