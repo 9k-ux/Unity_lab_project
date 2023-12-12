@@ -14,3 +14,11 @@
 
 To start the application, run `npm index.js` in the terminal.
 
+
+
+## Buyers Apis
+
+Fetch all the sellers with their name seller id http://localhost:3000/buyer/list-of-sellers.
+
+Fetch the catalogue of seller corresponding to it's seller id http://localhost:3000/api/buyer/seller-catalog/65773bb9b92f57eab8e62799
+

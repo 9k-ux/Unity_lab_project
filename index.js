@@ -90,12 +90,25 @@ app.post('/auth/login',async (req, res) => {
   });
 
 // API FOR BUYERS
+
+// To get all the sellers name and seller id 
 app.get('/buyer/list-of-sellers',async(req,res)=>{
 
-  let sellers = await User.find({ usertype: 'seller' }).select('username _id');;
+  let sellers = await User.find({ usertype: 'seller' }).select('username _id');
   res.send(sellers);
 
 })
+// To get catalogue of seller by seller id 
+
+app.get('/api/buyer/seller-catalog/:seller_id',async(req,res)=>{
+  const sellerId21 = req.params.seller_id;
+
+  let items = await Product.find({ seller_id:sellerId21}).select('name price -_id');
+  res.send(items);
+
+})
+
+
 
 
 
