@@ -39,7 +39,7 @@ const authenticateUser = (req, res, next) => {
 
 
 // Auth API - Register
-app.post('/auth/register',bodyParser.json(), async(req, res) => {
+app.post('/auth/register', async(req, res) => {
     let user = new User(req.body);
     let result = await user.save();
     result = result.toObject();
@@ -51,7 +51,7 @@ app.post('/auth/register',bodyParser.json(), async(req, res) => {
 
 
 // Authentication 
-app.post('/auth/login',bodyParser.json(),async (req, res) => {
+app.post('/auth/login',async (req, res) => {
     const { username, password } = req.body;
   
     try {
@@ -72,8 +72,8 @@ app.post('/auth/login',bodyParser.json(),async (req, res) => {
     }
   });
 
-  app.post('/seller/create-catalog',async(req,res)=>{
-    const sellerId2 = "hello";
+  app.post('/seller/create-catalog',authenticateUser,async(req,res)=>{
+    const sellerId2 = req.sellerId;
 
     const productData = {
       ...req.body,
