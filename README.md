@@ -7,10 +7,10 @@
    git clone https://github.com/9k-ux/Unity_lab_project.git
 
 ## Install dependencies
-   ```bash
-   npm install
-# Usage
+   
+  npm install
 
-To start the application
- ```bash
-npm index.js 
+## Usage
+
+To start the application, run `npm index.js` in the terminal.
+
