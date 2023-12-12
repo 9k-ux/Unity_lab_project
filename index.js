@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 require("./db/config");
 const User = require('./db/user')
 const Product = require('./db/product')
+const Order = require('./db/order')
 const session = require('express-session');
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(
 const authenticateUser = (req, res, next) => {
     if (req.session && req.session.userId) {
         req.sellerId = req.session.userId; 
+        req.buyerID=req.session.userId; 
         
       return next(); 
     } else {
@@ -100,13 +102,49 @@ app.get('/buyer/list-of-sellers',async(req,res)=>{
 })
 // To get catalogue of seller by seller id 
 
-app.get('/api/buyer/seller-catalog/:seller_id',async(req,res)=>{
+app.get('/buyer/seller-catalog/:seller_id',async(req,res)=>{
   const sellerId21 = req.params.seller_id;
 
   let items = await Product.find({ seller_id:sellerId21}).select('name price -_id');
   res.send(items);
 
 })
+
+// To order a product from specific seller 
+
+app.post('/buyer/create-order/:seller_id',async(req,res)=>{
+  const sellerId23 = req.params.seller_id;
+  // const Buyer_id = req.buyerID;
+  const Buyer_id = "hello";
+
+  const productData = {
+    ...req.body,
+    Buyer_Id:Buyer_id,
+    seller_id:sellerId23
+  };
+
+  try{
+    
+    let order = new Order(productData);
+    let result = await order.save();
+    result = result.toObject();
+    
+    res.send(`succesufull created your order wiht order id ${result._id}`)
+  }
+  catch (error){
+    console.error(error);
+
+  }
+ 
+
+
+ 
+
+})
+
+
+
+
 
 
 

@@ -15,8 +15,11 @@
 To start the application, run `npm index.js` in the terminal.
 
 
-## To test the post and get api use Postmen
+## To test the Post and Get Api use Postmen
+Postman can be downloaded and installed from the official Postman website. Here are the steps to download and install Postman:
 
+Visit the Postman Website:
+Go to the official Postman website: https://www.postman.com/
 
 
 
@@ -26,5 +29,10 @@ These two api's we are not protected so you don't need to signed in to use these
 
 Fetch all the sellers with their name seller id http://localhost:3000/buyer/list-of-sellers.
 
-Fetch the catalogue of seller corresponding to it's seller id http://localhost:3000/api/buyer/seller-catalog/65773bb9b92f57eab8e62799
+Fetch the catalogue of seller corresponding to it's seller id http://localhost:3000/buyer/seller-catalog/65773bb9b92f57eab8e62799
+
+#ordering a product
+
+http://localhost:3000/buyer/create-order/65773bb9b92f57eab8e62799
+65773bb9b92f57eab8e62799-> this is seller id you can any other seller id here
 
