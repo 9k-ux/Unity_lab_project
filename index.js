@@ -31,13 +31,7 @@ const authenticateUser = (req, res, next) => {
     }
   };
 
-  // app.get("/check",authenticateUser,(req,res)=>{
-  //   const sellerId = req.sellerId;
-  //  res.send(sellerId);
-  // } )
-  
-
-
+ 
 // Auth API - Register
 app.post('/auth/register', async(req, res) => {
     let user = new User(req.body);
@@ -94,6 +88,14 @@ app.post('/auth/login',async (req, res) => {
    
 
   });
+
+// API FOR BUYERS
+app.get('/buyer/list-of-sellers',async(req,res)=>{
+
+  let sellers = await User.find({ usertype: 'seller' }).select('username _id');;
+  res.send(sellers);
+
+})
 
 
 
