@@ -69,6 +69,10 @@ app.post('/auth/login',async (req, res) => {
     }
   });
 
+  // Seller APIS
+
+  // creating catalog for products
+
   app.post('/seller/create-catalog',authenticateUser,async(req,res)=>{
     const sellerId2 = req.sellerId;
 
@@ -91,6 +95,15 @@ app.post('/auth/login',async (req, res) => {
    
 
   });
+
+ // to get order details for seller
+
+  app.get("/seller/orders",authenticateUser,async(req,res)=>{
+    const sellerId2 = req.sellerId;
+    let sellers = await Order.find({ seller_id: sellerId2}).select('Buyer_Id Product_name');
+  res.send(sellers);
+
+  })
 
 // API FOR BUYERS
 
