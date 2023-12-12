@@ -22,6 +22,33 @@ Visit the Postman Website:
 Go to the official Postman website: https://www.postman.com/
 
 
+## Authentication 
+
+ Login Api :-http://localhost:3000/auth/login
+
+ demo password
+ Req.body{
+    "username":"kapil",
+    "password":"1234" 
+
+
+ }
+ 
+ response {
+    
+    "message": "User logged in successfully.",
+    "user": {
+        "_id": "65773bb9b92f57eab8e62799",
+        "username": "kapil",
+        "password": "1234",
+        "usertype": "seller",
+        "__v": 0
+    }
+ }
+
+
+
+
 
 ## Buyers Apis
 
@@ -44,4 +71,10 @@ req.body
 }
 response generated after succefull order
 succesufull created your order wiht order id 6578c6d040250106d50f460a
+
+
+##  Seller Api
+To get details of order received 
+you need to authenticate yourself to fetch your order's details
+http://localhost:3000/seller/orders
 
