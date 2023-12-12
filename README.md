@@ -33,6 +33,15 @@ Fetch the catalogue of seller corresponding to it's seller id http://localhost:3
 
 #ordering a product
 
+To place an order you need to first authenticate yourself .
+
 http://localhost:3000/buyer/create-order/65773bb9b92f57eab8e62799
-65773bb9b92f57eab8e62799-> this is seller id you can any other seller id here
+65773bb9b92f57eab8e62799-> this is a seller id you can use any other seller id also.
+
+req.body 
+{
+"Product_name":"Iphone50"
+}
+response generated after succefull order
+succesufull created your order wiht order id 6578c6d040250106d50f460a
 

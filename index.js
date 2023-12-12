@@ -49,6 +49,7 @@ app.post('/auth/register', async(req, res) => {
 // Authentication 
 app.post('/auth/login',async (req, res) => {
     const { username, password } = req.body;
+    console.log("hi sir");
   
     try {
       // 
@@ -112,10 +113,10 @@ app.get('/buyer/seller-catalog/:seller_id',async(req,res)=>{
 
 // To order a product from specific seller 
 
-app.post('/buyer/create-order/:seller_id',async(req,res)=>{
+app.post('/buyer/create-order/:seller_id',authenticateUser,async(req,res)=>{
   const sellerId23 = req.params.seller_id;
-  // const Buyer_id = req.buyerID;
-  const Buyer_id = "hello";
+  const Buyer_id = req.buyerID;
+  
 
   const productData = {
     ...req.body,
@@ -136,21 +137,7 @@ app.post('/buyer/create-order/:seller_id',async(req,res)=>{
 
   }
  
-
-
- 
-
 })
-
-
-
-
-
-
-
-
-
-
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
