@@ -74,6 +74,20 @@ succesufull created your order wiht order id 6578c6d040250106d50f460a
 
 
 ##  Seller Api
+
+To create catalogue of product 
+Api : http://localhost:3000/seller/create-catalog
+
+req.body
+    {
+       "name": "Iphone21",
+    "price": "150000"
+
+
+  
+}
+
+
 To get details of order received 
 you need to authenticate yourself to fetch your order's details
 http://localhost:3000/seller/orders
