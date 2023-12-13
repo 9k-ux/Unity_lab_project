@@ -21,27 +21,55 @@ Postman can be downloaded and installed from the official Postman website. Here 
 Visit the Postman Website:
 Go to the official Postman website: https://www.postman.com/
 
+## Registration
+
+Register Api :http://localhost:3000/auth/register
+example:
+body{
+    "username": "Rohan12",
+    "password": "rohan@1234",
+    "usertype":"buyer"
+
+
+  
+}
+respond {
+    "username": "Rohan12",
+    "password": "rohan@1234",
+    "usertype": "buyer",
+    "_id": "6579613a35***##222d",
+    "__v": 0
+
+
+}
+
+
+
+
 
 ## Authentication 
 
  Login Api :-http://localhost:3000/auth/login
 
- demo password
- Req.body{
-    "username":"kapil",
-    "password":"1234" 
+ demo Example
+ Req.body
+    {
+    "username": "Arun singh",
+    "password": "arunn@125434"
+    
+}
 
 
- }
+ 
  
  response {
     
-    "message": "User logged in successfully.",
+      "message": "User logged in successfully.",
     "user": {
-        "_id": "65773bb9b92f57eab8e62799",
-        "username": "kapil",
-        "password": "1234",
-        "usertype": "seller",
+        "_id": "6579649f352e34428b1fe23f",
+        "username": "Arun singh",
+        "password": "arunn@125434",
+        "usertype": "buyer",
         "__v": 0
     }
  }
@@ -54,20 +82,19 @@ Go to the official Postman website: https://www.postman.com/
 
 These two api's we are not protected so you don't need to signed in to use these api's
 
-Fetch all the sellers with their name seller id http://localhost:3000/buyer/list-of-sellers.
-
-Fetch the catalogue of seller corresponding to it's seller id http://localhost:3000/buyer/seller-catalog/65773bb9b92f57eab8e62799
+Fetch all the sellers with their name seller id http://localhost:3000/buyer/list-of-sellers
+Fetch the catalogue of seller corresponding to it's seller id http://localhost:3000/buyer/seller-catalog/65773b86b92f57eab8e62797
 
 #ordering a product
 
 To place an order you need to first authenticate yourself .
 
-http://localhost:3000/buyer/create-order/65773bb9b92f57eab8e62799
-65773bb9b92f57eab8e62799-> this is a seller id you can use any other seller id also.
+http://localhost:3000/buyer/create-order/65773bbcb92f57eab8e6279b
+65773bbcb92f57eab8e6279b-> this is a seller id you can use any other seller id also.
 
 req.body 
 {
-"Product_name":"Iphone50"
+"Product_name":"Mac_book"
 }
 response generated after succefull order
 succesufull created your order wiht order id 6578c6d040250106d50f460a

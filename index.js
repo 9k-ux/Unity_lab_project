@@ -48,7 +48,7 @@ app.post('/auth/register', async(req, res) => {
 
 // Authentication 
 app.post('/auth/login',async (req, res) => {
-    const { username, password } = req.body;
+    const { username,password } = req.body;
     console.log("hi sir");
   
     try {
@@ -86,7 +86,8 @@ app.post('/auth/login',async (req, res) => {
       let product = new Product(productData);
       let result = await product.save();
       result = result.toObject();
-      console.log(result);
+      res.send(result);
+      
     }
     catch (error){
       console.error(error);
@@ -100,7 +101,7 @@ app.post('/auth/login',async (req, res) => {
 
   app.get("/seller/orders",authenticateUser,async(req,res)=>{
     const sellerId2 = req.sellerId;
-    let sellers = await Order.find({ seller_id: sellerId2}).select('Buyer_Id Product_name');
+    let sellers = await Order.find({ seller_id: sellerId2}).select('Buyer_Id Product_name -_id');
   res.send(sellers);
 
   })
